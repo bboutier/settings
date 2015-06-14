@@ -13,7 +13,8 @@
 # Create own window instead of using desktop (required in nautilus)
 own_window yes
 own_window_type normal
-#own_window_type overide
+own_window_class conky
+#own_window_type override
 own_window_transparent yes
 own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
 background no #Transparent background.
@@ -51,7 +52,6 @@ uppercase no # set to yes if you want all text to be in uppercase
 stippled_borders 3
 
 # border margins
-#BBOborder_margin 9
 
 # border width
 border_width 10
@@ -108,18 +108,17 @@ ${font arial black:size=7}ROOT:$font${goto 120}${fs_type /}${goto 190}${fs_free_
 ${fs_bar 4 /}$color
 ${font arial black:size=7}HOME:$font${goto 120}${fs_type /home}${goto 190}${fs_free_perc /home}%${alignr}${fs_size /home}
 ${fs_bar 4 /home}$color
-${font arial black:size=7}BOOT:$font${goto 120}${fs_type /boot}${goto 190}${fs_free_perc /boot}%${alignr}${fs_size /boot}
-${fs_bar 4 /boot}$color
 
 ################### NETWORK
 ${font arial black:size=12}${color FF6600}NETWORK${color}${font arial black:size=11}INFORMATION${color FF6600} ${hr 2}$color$font
-${font arial black:size=9}LOCAL:$font${addr wlan0} $alignr ${color} ${font arial black:size=9}EXTERNAL:$font${execi 100 wget -q -O /dev/stdout http://checkip.dyndns.org/ | cut -d : -f 2- | cut -d \< -f -1}${color}
+${font arial black:size=9}LOCAL:$font${addr wlan0} $alignr ${color} ${font arial black:size=8}EXTERNAL:$font${execi 100 wget -q -O /dev/stdout http://checkip.dyndns.org/ | cut -d : -f 2- | cut -d \< -f -1}${color}
 ${font arial black:size=9}DOWN: $font$color${downspeed wlan0} k/s ${alignr}${font arial black:size=9}UP: $font${upspeed wlan0} k/s
-${downspeedgraph wlan0 25,140 303030 C0C0C0} ${alignr}${upspeedgraph wlan0
-25,140 303030 C0C0C0}$color
-${font arial black:size=9}TOTAL: $font${totaldown wlan0} ${alignr}${font arial black:size=9}TOTAL: $font${totalup wlan0}
-${font arial black:size=9}INBOUND: $font${tcp_portmon 1 32767 count} ${font arial black:size=9}OUTBOUND: $font${tcp_portmon 32768
-61000 count}${alignr}${font arial black:size=9}TOTAL: $font${tcp_portmon 1 65535 count}
+${downspeedgraph wlan0 25,140 303030 C0C0C0} ${alignr}${upspeedgraph wlan0 25,140 303030 C0C0C0}$color
+
+${font arial black:size=8}TOTAL: $font${totaldown wlan0} ${alignr}${font arial black:size=8}TOTAL: $font${totalup wlan0}${alignr}
+${font arial black:size=8}INBOUND: $font${tcp_portmon 1 32767 count} ${alignr}
+${font arial black:size=8}OUTBOUND: $font${tcp_portmon 32768 61000 count}${alignr}
+${font arial black:size=8}TOTAL: $font${tcp_portmon 1 65535 count}${alignr}
 
 ################### PROCESS
 ${font arial black:size=12}${color FF6600}PROCESS${color}${font arial black:size=11}INFORMATION${color FF6600} ${hr 2}$color$font
