@@ -1,0 +1,9 @@
+[alias]
+st = status -s
+cl = clone
+co = checkout
+br = branch
+diff = diff --word-diff
+dc = diff --cached
+lg = log --graph --pretty=format:'%Cred %h : %Creset%s %Cgreen(%ad) %C(blue)<%an>%C(yellow)%d %Creset' --name-status
+last = log -1 HEAD --name-status
