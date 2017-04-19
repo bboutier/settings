@@ -3,7 +3,11 @@
 		"left": [
 			{
 				"function": "powerline.segments.common.net.hostname",
-				"priority": 10
+				"priority": 10,
+                "args": {
+                    "only_if_ssh": false,
+                    "exclude_domain": true
+                }
 			},
 			{
 				"function": "powerline.segments.common.env.user",
@@ -15,11 +19,17 @@
 			},
 			{
 				"function": "powerline.segments.common.vcs.branch",
-				"priority": 40
+				"priority": 40,
+                "args" : {
+                    "status_colors" : true
+                }
 			},
 			{
 				"function": "powerline.segments.shell.cwd",
-				"priority": 10
+				"priority": 10,
+                "args": {
+                    "dir_limit_depth": 3
+                }
 			},
 			{
 				"function": "powerline.segments.shell.jobnum",
